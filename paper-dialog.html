@@ -1,0 +1,45 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE
+The complete set of authors may be found at http://polymer.github.io/AUTHORS
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS
+-->
+
+<!--
+
+
+Example:
+
+@group Quantum Paper Elements
+@element paper-dialog
+@homepage github.io
+
+-->
+<link href="../polymer/polymer.html" rel="import">
+<link href="../core-overlay/core-overlay.html" rel="import">
+
+<polymer-element name="paper-dialog" attributes="">
+
+  <template>
+
+    <link href="paper-dialog.css" rel="stylesheet">
+
+    <core-overlay id="overlay"></core-overlay>
+
+  </template>
+
+  <script>
+
+    Polymer('paper-dialog', {
+
+      ready: function() {
+        this.$.overlay.target = this;
+      }
+
+    });
+
+  </script>
+
+</polymer-element>
