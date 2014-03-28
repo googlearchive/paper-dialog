@@ -20,19 +20,51 @@ Example:
 <link href="../polymer/polymer.html" rel="import">
 <link href="../core-overlay/core-overlay.html" rel="import">
 
-<polymer-element name="paper-dialog" attributes="">
+<polymer-element name="paper-dialog" attributes="opened heading">
 
   <template>
 
     <link href="paper-dialog.css" rel="stylesheet">
 
-    <core-overlay id="overlay"></core-overlay>
+    <core-overlay id="overlay" opened="{{opened}}"></core-overlay>
+
+    <div id="container">
+
+      <div id="actions">
+        <content select="[dismissive]"></content>
+        <div flex></div>
+        <content select="[affirmative]"></content>
+      </div>
+
+      <div id="main">
+        <h1>{{heading}}</h1>
+        <content></content>
+      </div>
+
+    </div>
 
   </template>
 
   <script>
 
     Polymer('paper-dialog', {
+
+      /**
+       * Set opened to true to show the dialog and to false to hide it.
+       * A dialog may be made intially opened by setting its opened attribute.
+
+       * @attribute opened
+       * @type boolean
+       * @default false
+       */
+      opened: false,
+
+      /**
+       * @attribute heading
+       * @type string
+       * @default ''
+       */
+      heading: '',
 
       ready: function() {
         this.$.overlay.target = this;

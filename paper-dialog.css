@@ -1,3 +1,45 @@
 :host {
-  display: block;
+  background: white;
+  box-shadow: 10px 15px 10px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+#container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: column;
+  flex-flow: column;
+}
+
+#main {
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-order: 1;
+  order: 1;
+  padding: 24px;
+}
+
+h1 {
+  margin: 0;
+}
+
+
+#actions {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-order: 2;
+  order: 2;
+  padding: 0 16px 20px;
+}
+
+
+#actions > [flex] {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+::content > [affirmative],
+::content > [dismissive] {
+  font: inherit;
+  border: 0;
 }
