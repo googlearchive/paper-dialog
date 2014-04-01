@@ -9,14 +9,16 @@
   display: flex;
   -webkit-flex-flow: column;
   flex-flow: column;
+  overflow: hidden;
 }
 
 #main {
   -webkit-flex: 1;
-  flex: 1;
+  flex: 1 auto;
   -webkit-order: 1;
   order: 1;
   padding: 24px;
+  overflow: auto;
 }
 
 h1 {
@@ -29,7 +31,9 @@ h1 {
   display: flex;
   -webkit-order: 2;
   order: 2;
-  padding: 0 16px 20px;
+  padding: 4px 16px 20px;
+  /* TODO(ykyip): why do we need this? */
+  min-height: 32px;
 }
 
 
