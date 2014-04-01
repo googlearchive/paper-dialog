@@ -17,7 +17,7 @@
 #main {
   -webkit-flex: 1 auto;
   flex: 1 auto;
-  -ms-flex: 1 auto;
+  -ms-flex: 1;
   height: auto;
   -webkit-order: 1;
   order: 1;
