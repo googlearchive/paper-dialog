@@ -21,13 +21,13 @@ Example:
 <link href="../core-overlay/core-overlay.html" rel="import">
 <link href="../paper-button/paper-button.html" rel="import">
 
-<polymer-element name="paper-dialog" attributes="opened heading">
+<polymer-element name="paper-dialog" attributes="opened heading transition">
 
   <template>
 
     <link href="paper-dialog.css" rel="stylesheet">
 
-    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" margin="20"></core-overlay>
+    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" transition="{{transition}}" margin="20"></core-overlay>
 
     <div id="container">
 
@@ -66,6 +66,16 @@ Example:
        * @default ''
        */
       heading: '',
+
+      /**
+       * Set this property to the id of a <core-transition> element to specify
+       * the transition to use when opening/closing this dialog.
+       *
+       * @attribute transition
+       * @type string
+       * @default ''
+       */
+      transition: '',
 
       /** 
        * Toggle the dialog's opened state.
