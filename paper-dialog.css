@@ -15,8 +15,8 @@
 }
 
 #main {
-  -webkit-flex: 1 auto;
-  flex: 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
   -ms-flex: 1;
   height: auto;
   -webkit-order: 1;
@@ -34,6 +34,8 @@ h1 {
   display: -webkit-flex;
   display: flex;
   display: -ms-flexbox;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
   -webkit-order: 2;
   order: 2;
   -ms-flex-order: 2;
