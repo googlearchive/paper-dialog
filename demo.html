@@ -19,10 +19,10 @@
       color: rgba(0, 0, 0, 0.87);
     }
 
-		paper-dialog {
-			width: 50%;
+    paper-dialog {
+      width: 50%;
       min-width: 430px;
-		}
+    }
 
     p {
       margin-bottom: 0;
@@ -51,10 +51,24 @@
 
   </paper-dialog>
 
-  <paper-button is="paper-button" onclick="toggleDialog()" affirmative>Show</paper-button>
+  <paper-dialog heading="Dialog" transition="paper-transition-bottom">
+    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+
+    <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
+
+    <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
+
+    <paper-button dismissive>More Info...</paper-button>
+    <paper-button affirmative overlay-toggle>Decline</paper-button>
+    <paper-button affirmative default overlay-toggle>Accept</paper-button>
+
+  </paper-dialog>
+
+  <paper-button is="paper-button" onclick="toggleDialog('paper-transition-bottom')">Transition A</paper-button>
+  <paper-button is="paper-button" onclick="toggleDialog('paper-transition-center')">Transition B</paper-button>
   <script>
-    var dialog = document.querySelector('paper-dialog');
-    function toggleDialog() {
+    function toggleDialog(transition) {
+      var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
       dialog.toggle();
     }
   </script>
