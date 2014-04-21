@@ -2,6 +2,8 @@
   "name": "paper-dialog",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master"
+    "polymer": "Polymer/polymer#master",
+    "core-layout": "Polymer/core-layout#master",
+    "core-overlay": "Polymer/core-overlay#master"
   }
 }

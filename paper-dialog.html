@@ -18,8 +18,8 @@ Example:
 
 -->
 <link href="../polymer/polymer.html" rel="import">
+<link href="../core-layout/core-layout.html" rel="import">
 <link href="../core-overlay/core-overlay.html" rel="import">
-<link href="../paper-button/paper-button.html" rel="import">
 
 <polymer-element name="paper-dialog" attributes="opened heading transition">
 
@@ -29,20 +29,20 @@ Example:
 
     <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" transition="{{transition}}" margin="20"></core-overlay>
 
-    <div id="container">
+    <core-layout id="container" vertical>
 
-      <div id="actions">
+      <core-layout id="actions">
         <content select="[dismissive]"></content>
-        <div flex></div>
+        <div core-flex-auto></div>
         <content select="[affirmative]"></content>
-      </div>
+      </core-layout>
 
-      <div id="main">
+      <div id="main" core-flex-auto>
         <h1>{{heading}}</h1>
         <content></content>
       </div>
 
-    </div>
+    </core-layout>
 
   </template>
 
