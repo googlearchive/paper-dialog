@@ -1,7 +1,14 @@
 :host {
   background: white;
-  box-shadow: 10px 15px 10px #ccc;
   color: rgba(0, 0, 0, 0.87);
+}
+
+#shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 #container {
