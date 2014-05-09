@@ -13,6 +13,7 @@
       padding: 0;
       margin: 0;
       -webkit-transform: translateZ(0);
+      transform: translateZ(0);
       font-family: Roboto2, 'Helvetica Neue', Helvetica, Arial;
       font-size: 16px;
       background: #eee;
@@ -64,8 +65,8 @@
 
   </paper-dialog>
 
-  <paper-button is="paper-button" onclick="toggleDialog('paper-transition-bottom')">Transition A</paper-button>
-  <paper-button is="paper-button" onclick="toggleDialog('paper-transition-center')">Transition B</paper-button>
+  <paper-button onclick="toggleDialog('paper-transition-bottom')">Transition A</paper-button>
+  <paper-button onclick="toggleDialog('paper-transition-center')">Transition B</paper-button>
   <script>
     function toggleDialog(transition) {
       var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
