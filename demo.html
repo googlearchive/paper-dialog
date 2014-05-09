@@ -46,9 +46,9 @@
 
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <paper-button dismissive>More Info...</paper-button>
-    <paper-button affirmative overlay-toggle>Decline</paper-button>
-    <paper-button affirmative default overlay-toggle>Accept</paper-button>
+    <paper-button label="More Info..." dismissive></paper-button>
+    <paper-button label="Decline" affirmative overlay-toggle></paper-button>
+    <paper-button label="Accept" affirmative default overlay-toggle></paper-button>
 
   </paper-dialog>
 
@@ -59,14 +59,14 @@
 
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <paper-button dismissive>More Info...</paper-button>
-    <paper-button affirmative overlay-toggle>Decline</paper-button>
-    <paper-button affirmative default overlay-toggle>Accept</paper-button>
+    <paper-button label="More Info..." dismissive></paper-button>
+    <paper-button label="Decline" affirmative overlay-toggle></paper-button>
+    <paper-button label="Accept" affirmative default overlay-toggle></paper-button>
 
   </paper-dialog>
 
-  <paper-button onclick="toggleDialog('paper-transition-bottom')">Transition A</paper-button>
-  <paper-button onclick="toggleDialog('paper-transition-center')">Transition B</paper-button>
+  <paper-button label="Transition A" onclick="toggleDialog('paper-transition-bottom')"></paper-button>
+  <paper-button label="Transition B" onclick="toggleDialog('paper-transition-center')"></paper-button>
   <script>
     function toggleDialog(transition) {
       var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
