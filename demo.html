@@ -6,7 +6,7 @@
   <script src="../platform/platform.js"></script>
   <link href="../font-roboto2/roboto2.html" rel="import">
   <link href="../paper-button/paper-button.html" rel="import">
-  <link rel="import" href="../paper-transition/paper-transition-dialog.html">
+  <link rel="import" href="paper-dialog-transition.html">
   <link href="paper-dialog.html" rel="import">
   <style>
     body {
@@ -39,34 +39,34 @@
   </style>
 </head>
 <body unresolved>
-  <paper-dialog heading="Dialog" transition="paper-transition-center">
+  <paper-dialog heading="Dialog" transition="paper-dialog-transition-center">
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
     <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
 
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <paper-button label="More Info..." dismissive></paper-button>
-    <paper-button label="Decline" affirmative overlay-toggle></paper-button>
-    <paper-button label="Accept" affirmative default overlay-toggle></paper-button>
+    <paper-button label="More Info..." dismissive core-overlay-toggle></paper-button>
+    <paper-button label="Decline" affirmative core-overlay-toggle></paper-button>
+    <paper-button label="Accept" affirmative default core-overlay-toggle></paper-button>
 
   </paper-dialog>
 
-  <paper-dialog heading="Dialog" transition="paper-transition-bottom">
+  <paper-dialog heading="Dialog" transition="paper-dialog-transition-bottom">
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
     <p>Id qui scripta laboramus dissentiet, verterem partiendo vim at. Stet dissentiet ut mei. Iriure facilis eloquentiam pro eu, nec an esse inciderint. In meliore abhorreant sea. Eros nostro ocurreret at nec. Cu per regione persecuti.</p>
 
     <p>Lorem ipsum dolor sit amet, doming noster at quo, nostrud lucilius rationibus ea duo. Vim no mucius dolores. No bonorum voluptatum vis, has iudicabit consectetuer ne. Nullam sensibus vim id, et quo graeci perpetua.</p>
 
-    <paper-button label="More Info..." dismissive></paper-button>
-    <paper-button label="Decline" affirmative overlay-toggle></paper-button>
-    <paper-button label="Accept" affirmative default overlay-toggle></paper-button>
+    <paper-button label="More Info..." dismissive core-overlay-toggle></paper-button>
+    <paper-button label="Decline" affirmative core-overlay-toggle></paper-button>
+    <paper-button label="Accept" affirmative default core-overlay-toggle></paper-button>
 
   </paper-dialog>
 
-  <paper-button label="Transition A" onclick="toggleDialog('paper-transition-bottom')"></paper-button>
-  <paper-button label="Transition B" onclick="toggleDialog('paper-transition-center')"></paper-button>
+  <paper-button label="Transition A" onclick="toggleDialog('paper-dialog-transition-bottom')"></paper-button>
+  <paper-button label="Transition B" onclick="toggleDialog('paper-dialog-transition-center')"></paper-button>
   <script>
     function toggleDialog(transition) {
       var dialog = document.querySelector('paper-dialog[transition=' + transition + ']');
