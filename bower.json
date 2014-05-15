@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "core-layout": "Polymer/core-layout#master",
     "core-overlay": "Polymer/core-overlay#master",
     "core-transition": "Polymer/core-transition#master",
     "paper-shadow": "Polymer/paper-shadow#master"
