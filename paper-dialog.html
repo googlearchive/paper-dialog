@@ -30,7 +30,7 @@ Example:
     <div id="shadow"></div>
     <paper-shadow z="3" target="{{$.shadow}}" hasPosition></paper-shadow>
 
-    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" transition="{{transition}}" margin="20"></core-overlay>
+    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="[dismissive],[affirmative]" transition="{{transition}}" margin="20"></core-overlay>
 
     <div id="container" layout vertical>
 
