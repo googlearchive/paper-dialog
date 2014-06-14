@@ -1,2 +1,2 @@
-paper-input
-=========
+paper-dialog
+==========
