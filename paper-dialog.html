@@ -21,7 +21,7 @@ Example:
 <link href="../core-overlay/core-overlay.html" rel="import">
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 
-<polymer-element name="paper-dialog" attributes="opened heading transition">
+<polymer-element name="paper-dialog" attributes="opened heading transition autoCloseDisabled">
 
   <template>
 
@@ -31,7 +31,7 @@ Example:
       <paper-shadow z="3" hasPosition></paper-shadow>
     </div>
 
-    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="[dismissive],[affirmative]" transition="{{transition}}" margin="20"></core-overlay>
+    <core-overlay id="overlay" opened="{{opened}}" autoCloseDisabled="{{autoCloseDisabled}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="[dismissive],[affirmative]" transition="{{transition}}" margin="20"></core-overlay>
 
     <div id="container" layout vertical>
 
@@ -63,7 +63,17 @@ Example:
        * @default false
        */
       opened: false,
-
+    
+      /**
+       * By default a dialog will close automatically if the user
+       * taps outside it or presses the escape key. Disable this
+       * behavior by setting the `autoCloseDisabled` property to true.
+       * @attribute autoCloseDisabled
+       * @type boolean
+       * @default false
+       */
+      autoCloseDisabled: false,
+	  
       /**
        * @attribute heading
        * @type string
