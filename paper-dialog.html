@@ -8,11 +8,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <!--
-Provides a Quantum Paper dialog overlay.
+Provides a dialog overlay.
 
 Child elements that include a `dismissive` attribute are positioned in the lower left corner of the dialog. Elements that use the `affirmative` attribute are positioned in the lower right corner.
 
-Child elements that include the `core-overlay-toggle` attribute will automatically toggle the dialog when clicked.
+Child elements that include the `dismissive` or `affirmative` attribute will automatically toggle the dialog when clicked.
 
 Example:
 
@@ -20,8 +20,8 @@ Example:
       <p>Lorem ipsum ....</p>
       <p>Id qui scripta ...</p>
       <paper-button label="More Info..." dismissive></paper-button>
-      <paper-button label="Decline" affirmative core-overlay-toggle></paper-button>
-      <paper-button label="Accept" affirmative core-overlay-toggle></paper-button>
+      <paper-button label="Decline" affirmative></paper-button>
+      <paper-button label="Accept" affirmative default></paper-button>
     </paper-dialog>
 
 `<paper-dialog>` can be used with `<paper-transition>` to transition the overlay open and close.
@@ -32,13 +32,12 @@ Transition examples:
 
     <paper-dialog heading="Title for dialog" transition="paper-transition-bottom">
 
-@group Quantum Paper Elements
+@group Paper Elements
 @element paper-dialog
 @homepage github.io
 
 -->
 <link href="../polymer/polymer.html" rel="import">
-<link href="../core-layout/core-layout.html" rel="import">
 <link href="../core-overlay/core-overlay.html" rel="import">
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 
@@ -48,25 +47,26 @@ Transition examples:
 
     <link href="paper-dialog.css" rel="stylesheet">
 
-    <div id="shadow"></div>
-    <paper-shadow z="3" target="{{$.shadow}}"></paper-shadow>
+    <div id="shadow">
+      <paper-shadow z="3" hasPosition></paper-shadow>
+    </div>
 
-    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" transition="{{transition}}" margin="20"></core-overlay>
+    <core-overlay id="overlay" opened="{{opened}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="[dismissive],[affirmative]" transition="{{transition}}" margin="20"></core-overlay>
 
-    <core-layout id="container" vertical>
+    <div id="container" layout vertical>
 
-      <core-layout id="actions">
+      <div id="actions" layout horizontal>
         <content select="[dismissive]"></content>
-        <div core-flex-auto></div>
+        <div flex auto></div>
         <content select="[affirmative]"></content>
-      </core-layout>
+      </div>
 
-      <div id="main" core-flex-auto>
+      <div id="main" flex auto>
         <h1>{{heading}}</h1>
         <content></content>
       </div>
 
-    </core-layout>
+    </div>
 
   </template>
 
