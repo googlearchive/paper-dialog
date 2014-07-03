@@ -8,9 +8,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <!--
+Provides a dialog overlay.
 
+Child elements that include a `dismissive` attribute are positioned in the lower left corner of the dialog. Elements that use the `affirmative` attribute are positioned in the lower right corner.
+
+Child elements that include the `dismissive` or `affirmative` attribute will automatically toggle the dialog when clicked.
 
 Example:
+
+    <paper-dialog heading="Title for dialog">
+      <p>Lorem ipsum ....</p>
+      <p>Id qui scripta ...</p>
+      <paper-button label="More Info..." dismissive></paper-button>
+      <paper-button label="Decline" affirmative></paper-button>
+      <paper-button label="Accept" affirmative default></paper-button>
+    </paper-dialog>
+
+`<paper-dialog>` can be used with `<paper-transition>` to transition the overlay open and close.
+
+Transition examples:
+
+    <paper-dialog heading="Title for dialog" transition="paper-transition-center">
+
+    <paper-dialog heading="Title for dialog" transition="paper-transition-bottom">
 
 @group Paper Elements
 @element paper-dialog
