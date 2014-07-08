@@ -51,7 +51,7 @@ Transition examples:
       <paper-shadow z="3" hasPosition></paper-shadow>
     </div>
 
-    <core-overlay id="overlay" opened?="{{opened}}" autoCloseDisabled?="{{autoCloseDisabled}}" backdrop?="{{backdrop}}" layered?="{{layered}}" closeSelector?="{{closeSelector}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="[dismissive],[affirmative]" transition="{{transition}}" margin="20"></core-overlay>
+    <core-overlay id="overlay" opened?="{{opened}}" autoCloseDisabled?="{{autoCloseDisabled}}" backdrop?="{{backdrop}}" layered?="{{layered}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="{{closeSelector}}" transition="{{transition}}" margin="20"></core-overlay>
 
     <div id="container" layout vertical>
 
@@ -123,7 +123,7 @@ Transition examples:
        * @type string
        * @default ""
        */
-      closeSelector: '',
+      closeSelector: '[dismissive],[affirmative]',
 
       /**
        * @attribute heading
