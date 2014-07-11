@@ -150,7 +150,7 @@ Transition examples:
        * @method toggle
        */
       toggle: function() {
-        this.$.overlay.toggle();
+        this.opened = !this.opened;
       },
 
       headingChanged: function() {
