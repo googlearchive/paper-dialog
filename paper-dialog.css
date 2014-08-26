@@ -39,5 +39,4 @@ h1 {
 polymer-next-selector { content: ':host > *'; }
 ::content > * {
   font: inherit;
-  border: 0;
 }
