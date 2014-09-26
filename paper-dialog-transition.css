@@ -23,6 +23,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   -webkit-transform: scale(0.9) translateY(200%);
 }
 
+:host(.paper-dialog-transition-right) {
+  transform: scale(0.9) translateX(200%);
+  -webkit-transform: scale(0.9) translateX(200%);
+}
+
 :host(.paper-dialog-transition-center.core-opened) {
   animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-animation: paper-dialog-transition-center-keyframes 0.2s cubic-bezier(0.4, 0, 0.2, 1);
