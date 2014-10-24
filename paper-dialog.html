@@ -160,7 +160,7 @@ Fired when the dialog's `opened` property changes.
        * @method toggle
        */
       toggle: function() {
-        this.$.overlay.toggle();
+        this.opened = !this.opened;
       },
 
       headingChanged: function() {
