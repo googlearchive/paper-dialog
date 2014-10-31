@@ -8,167 +8,111 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <!--
-Provides a dialog overlay.
 
-Child elements that include a `dismissive` attribute are positioned in the lower left corner of the dialog. Elements that use the `affirmative` attribute are positioned in the lower right corner.
+Material Design: <a href="http://www.google.com/design/spec/components/dialogs.html">Dialogs</a>
 
-Child elements that include the `dismissive` or `affirmative` attribute will automatically toggle the dialog when clicked.
-
-One child element should have the `autofocus` attribute so that the Enter key will automatically take action. This is
-especially important for screen reader environments.
+`paper-dialog` is an overlay with a drop shadow.
 
 Example:
 
-    <paper-dialog heading="Title for dialog">
-      <p>Lorem ipsum ....</p>
-      <p>Id qui scripta ...</p>
-      <paper-button label="More Info..." dismissive></paper-button>
-      <paper-button label="Decline" affirmative></paper-button>
-      <paper-button label="Accept" affirmative autofocus></paper-button>
+    <paper-dialog heading="Dialog Title">
+      <p>Some content</p>
     </paper-dialog>
 
-#### Transitions
+Transitions
+-----------
 
-`<paper-dialog>` can be used with `<paper-transition>` to transition the overlay open and close.
+You can use transitions provided by `core-transition` with this element.
 
-To use a transition, import `paper-dialog-transition.html` alongside paper-dialog:
+    <paper-dialog transition="core-transition-center">
+      <p>Some content</p>
+    </paper-dialog>
 
-    <link rel="import" href="paper-dialog/paper-dialog-transition.html">
+Accessibility
+-------------
 
-Then set the `transition` attribute:
-
-    <paper-dialog heading="Title for dialog" transition="paper-dialog-transition-center">
-
-    <paper-dialog heading="Title for dialog" transition="paper-dialog-transition-bottom">
+By default, the `aria-label` will be set to the value of the `heading` attribute.
 
 @group Paper Elements
 @element paper-dialog
+@extends core-overlay
 @homepage github.io
--->
-<!--
-Fired when the dialog's `opened` property changes.
-
-@event core-overlay-open
-@param {Object} detail
-@param {Object} detail.opened the opened state
+@status unstable
 -->
 <link href="../polymer/polymer.html" rel="import">
 <link href="../core-overlay/core-overlay.html" rel="import">
+<link href="../core-transition/core-transition-css.html" rel="import">
 <link href="../paper-shadow/paper-shadow.html" rel="import">
 
-<polymer-element name="paper-dialog" attributes="opened heading transition autoCloseDisabled backdrop layered closeSelector" role="dialog">
+<polymer-element name="paper-dialog" extends="core-overlay" role="dialog">
 
-  <template>
+<template>
 
-    <link href="paper-dialog.css" rel="stylesheet">
+  <style>
+    :host {
+      background: #fff;
+      color: rgba(0, 0, 0, 0.87);
+      margin: 32px;
+      overflow: visible !important;
+    }
 
-    <paper-shadow z="3" fit></paper-shadow>
+    h1 {
+      font-size: 20px;
+    }
 
-    <core-overlay id="overlay" opened="{{opened}}" autoCloseDisabled?="{{autoCloseDisabled}}" backdrop?="{{backdrop}}" layered?="{{layered}}" target="{{}}" sizingTarget="{{$.container}}" closeSelector="{{closeSelector}}" transition="{{transition}}"></core-overlay>
+    #scroller {
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 24px;
+    }
+  </style>
 
-    <div id="container" layout vertical>
+  <paper-shadow z="3" fit></paper-shadow>
 
-      <div id="actions" layout horizontal>
-        <content select="[dismissive]"></content>
-        <div flex auto></div>
-        <content select="[affirmative]"></content>
-      </div>
+  <div id="scroller" relative>
+    <template if="{{heading}}">
+      <h1>{{heading}}</h1>
+    </template>
 
-      <div id="main" flex auto>
-        <h1>{{heading}}</h1>
-        <content></content>
-      </div>
+    <content></content>
+  </div>
 
-    </div>
+</template>
 
-  </template>
+<script>
 
-  <script>
+  Polymer('paper-dialog', {
 
-    Polymer('paper-dialog', {
+    publish: {
 
       /**
-       * Set opened to true to show the dialog and to false to hide it.
-       * A dialog may be made intially opened by setting its opened attribute.
-
-       * @attribute opened
-       * @type boolean
-       * @default false
-       */
-      opened: false,
-
-      /**
-       * If true, the dialog has a backdrop darkening the rest of the screen.
-       * The backdrop element is attached to the document body and may be styled
-       * with the class `core-overlay-backdrop`. When opened the `core-opened`
-       * class is applied.
+       * The title of the dialog.
        *
-       * @attribute backdrop
-       * @type boolean
-       * @default false
-       */
-      backdrop: false,
-
-      /**
-       * If true, the dialog is guaranteed to display above page content.
-       *
-       * @attribute layered
-       * @type boolean
-       * @default false
-      */
-      layered: false,
-
-      /**
-       * By default a dialog will close automatically if the user
-       * taps outside it or presses the escape key. Disable this
-       * behavior by setting the `autoCloseDisabled` property to true.
-       * @attribute autoCloseDisabled
-       * @type boolean
-       * @default false
-       */
-      autoCloseDisabled: false,
-
-      /**
-       * This property specifies a selector matching elements that should
-       * close the dialog on tap.
-       *
-       * @attribute closeSelector
-       * @type string
-       * @default ""
-       */
-      closeSelector: '[dismissive],[affirmative]',
-
-      /**
        * @attribute heading
        * @type string
        * @default ''
        */
       heading: '',
 
-      /**
-       * Set this property to the id of a `core-transition` element to specify
-       * the transition to use when opening/closing this dialog.
-       *
-       * @attribute transition
-       * @type string
-       * @default ''
-       */
       transition: '',
 
-      /**
-       * Toggle the dialog's opened state.
-       * @method toggle
-       */
-      toggle: function() {
-        this.$.overlay.toggle();
-      },
+      layered: true
+    },
 
-      headingChanged: function() {
+    ready: function() {
+      this.super();
+      this.sizingTarget = this.$.scroller;
+    },
+
+    headingChanged: function(old) {
+      var label = this.getAttribute('aria-label');
+      if (!label || label === old) {
         this.setAttribute('aria-label', this.heading);
       }
+    }
 
-    });
+  });
 
-  </script>
+</script>
 
 </polymer-element>
