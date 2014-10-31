@@ -11,48 +11,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 Material Design: <a href="http://www.google.com/design/spec/components/dialogs.html">Dialogs</a>
 
-`paper-dialog` is an overlay with a drop shadow.
+`paper-action-dialog` is a `paper-dialog` a row of buttons at the bottom that
+indicate user action. The action buttons do not scroll with the dialog body.
+
+The buttons should have either the `affirmative` or `dismissive` attribute. See
+the Material Design spec for more info.
 
 Example:
 
-    <paper-dialog heading="Dialog Title">
+    <paper-action-dialog heading="Dialog Title">
       <p>Some content</p>
-    </paper-dialog>
-
-Styling
--------
-
-Because a `paper-dialog` is `layered` by default, you need to use the `/deep/`
-combinator to style all instances of the `paper-dialog`. Style the position,
-colors and other inherited properties of the dialog using the
-`html /deep/ paper-dialog` selector. Use the `html /deep/ paper-dialog::shadow #scroller` selector to size the dialog. Note that if you provided actions, the height
-of the actions will be added to the height of the dialog.
-
-    html /deep/ paper-dialog {
-        color: green;
-    }
-
-    html /deep/ paper-dialog::shadow #scroller {
-        height: 300px;
-        width: 300px;
-    }
-
-Transitions
------------
-
-You can use transitions provided by `core-transition` with this element.
-
-    <paper-dialog transition="core-transition-center">
-      <p>Some content</p>
-    </paper-dialog>
-
-Accessibility
--------------
-
-By default, the `aria-label` will be set to the value of the `heading` attribute.
+      <paper-button dismissive>More Info</paper-button>
+      <paper-button affirmative>Decline</paper-button>
+      <paper-button affirmative>Accept</paper-button>
+    </paper-action-dialog>
 
 @group Paper Elements
-@element paper-dialog
+@element paper-action-dialog
 @extends paper-dialog-base
 @homepage github.io
 @status unstable
@@ -62,7 +37,7 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
 
 <link href="paper-dialog-base.html" rel="import">
 
-<polymer-element name="paper-dialog" extends="paper-dialog-base" role="dialog" noscript>
+<polymer-element name="paper-action-dialog" extends="paper-dialog-base" role="dialog">
 
 <template>
 
@@ -81,7 +56,11 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
     #scroller {
       overflow: auto;
       box-sizing: border-box;
-      padding: 24px;
+      padding: 24px 24px 0 24px;
+    }
+
+    #actions {
+      padding: 16px;
     }
   </style>
 
@@ -93,9 +72,27 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
       <h1>{{heading}}</h1>
     </template>
 
-    <content></content>
+    <content select=":not([affirmative]):not([dismissive])"></content>
+  </div>
+
+  <div id="actions" relative layout horizontal>
+    <content select="[dismissive]"></content>
+    <div flex></div>
+    <content select="[affirmative]"></content>
   </div>
 
 </template>
+
+<script>
+
+  Polymer({
+
+    publish: {
+      closeSelector: '[affirmative],[dismissive]'
+    }
+
+  });
+
+</script>
 
 </polymer-element>
