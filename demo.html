@@ -238,6 +238,9 @@
   var scope = document.querySelector('template[is=auto-binding]');
 
   scope.toggleDialog1 = function(e) {
+    if (e.target.localName != 'button') {
+      return;
+    }
     var d = e.target.querySelector('paper-dialog,paper-action-dialog');
     if (!d) {
       return;
