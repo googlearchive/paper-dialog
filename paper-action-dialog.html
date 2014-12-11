@@ -37,30 +37,34 @@ Example:
 
 <link href="paper-dialog-base.html" rel="import">
 
-<polymer-element name="paper-action-dialog" extends="paper-dialog-base" role="dialog" layout vertical>
+<polymer-element name="paper-action-dialog" extends="paper-dialog-base" role="dialog">
 
 <template>
 
   <style>
     :host {
-      background: #fff;
+      background: none;
       color: rgba(0, 0, 0, 0.87);
       margin: 32px;
       overflow: visible !important;
     }
 
-    h1 {
-      font-size: 20px;
-    }
-
     #scroller {
       overflow: auto;
       box-sizing: border-box;
-      padding: 24px 24px 0 24px;
+    }
+    #headingContainer {
+      padding: 24px;
+      background-color: #fff;
+    }
+    #contentContainer {
+      padding: 24px;
+      background-color: #fff;
     }
 
     #actions {
       padding: 16px;
+      background-color: #fff;
     }
   </style>
 
@@ -68,11 +72,12 @@ Example:
 
   <!-- need this because the host needs to be overflow: visible -->
   <div id="scroller" relative flex auto>
-    <template if="{{heading}}">
-      <h1>{{heading}}</h1>
-    </template>
-
-    <content select=":not([affirmative]):not([dismissive])"></content>
+    <div id="headingContainer">
+      <content id="heading" select=".heading"></content>
+    </div>
+    <div id="contentContainer">
+      <content id="content" select=":not([affirmative]):not([dismissive])"></content>
+    </div>
   </div>
 
   <div id="actions" relative layout horizontal>
