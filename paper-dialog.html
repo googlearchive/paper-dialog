@@ -106,6 +106,7 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
   Polymer({
     domReady: function() {
       this.hideEmptyHeader();
+      this.onMutation(this, this.hideEmptyHeader);
     },
     hideEmptyHeader: function() {
       if(this.querySelectorAll('.heading').length < 1) {
