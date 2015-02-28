@@ -269,7 +269,9 @@
       return;
     }
     scope.transition = e.target.getAttribute('transition');
-    document.getElementById('dialog2').toggle();
+    if(document.getElementById('dialog2').toggle){
+      document.getElementById('dialog2').toggle();
+    }
   };
 
 </script>
