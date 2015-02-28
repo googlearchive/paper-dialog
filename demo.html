@@ -250,7 +250,7 @@
       return;
     }
     var d = e.target.nextElementSibling;
-    if (!d) {
+    if (!d || !d.toggle) {
       return;
     }
     d.toggle();
