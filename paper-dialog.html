@@ -62,26 +62,29 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
 
 <link href="paper-dialog-base.html" rel="import">
 
-<polymer-element name="paper-dialog" extends="paper-dialog-base" role="dialog" layout vertical noscript>
+<polymer-element name="paper-dialog" extends="paper-dialog-base" role="dialog" layout vertical>
 
 <template>
 
   <style>
     :host {
-      background: #fff;
+      background: none;
       color: rgba(0, 0, 0, 0.87);
       margin: 32px;
       overflow: visible !important;
     }
 
-    h1 {
-      font-size: 20px;
-    }
-
     #scroller {
       overflow: auto;
       box-sizing: border-box;
+    }
+    #headingContainer {
       padding: 24px;
+      background-color: #fff;
+    }
+    #contentContainer {
+      padding: 24px;
+      background-color: #fff;
     }
   </style>
 
@@ -89,13 +92,27 @@ By default, the `aria-label` will be set to the value of the `heading` attribute
 
   <!-- need this because the host needs to be overflow: visible -->
   <div id="scroller" relative flex auto>
-    <template if="{{heading}}">
-      <h1>{{heading}}</h1>
-    </template>
-
-    <content></content>
+    <div id="headingContainer">
+      <content id="heading" select=".heading"></content>
+    </div>
+    <div id="contentContainer">
+      <content id="content" select=".content"></content>
+      <content></content>
+    </div>
   </div>
 
 </template>
-
+<script>
+  Polymer({
+    domReady: function() {
+      this.hideEmptyHeader();
+      this.onMutation(this, this.hideEmptyHeader);
+    },
+    hideEmptyHeader: function() {
+      if(this.querySelectorAll('.heading').length < 1) {
+        this.$.headingContainer.setAttribute('hidden', 'hidden');
+      }
+    }
+  });
+</script>
 </polymer-element>

@@ -73,6 +73,36 @@
       height: 300px;
     }
 
+    /* Info dialog is blue
+     -------------------------------------------------- */
+    html /deep/ .info::shadow #headingContainer {
+      background-color: #66C0E9;
+    }
+
+    html /deep/ .info::shadow #contentContainer {
+      background-color: #fefefe;
+      color: #66C0E9;
+    }
+
+    /* RW dialog is green
+     -------------------------------------------------- */
+    html /deep/ .green::shadow #headingContainer {
+      background-color: #4fb500;
+    }
+
+    html /deep/ .green::shadow #contentContainer {
+      background-color: #fefefe;
+      color: #4fb500;
+    }
+
+    /* Rounded... or whatever.
+     -------------------------------------------------- */
+    html /deep/ .rounded::shadow #scroller {
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+
   </style>
 
 <!--
@@ -124,15 +154,20 @@
       Dialog with heading
     </button>
 
-    <paper-dialog heading="Title">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <paper-dialog
+      class="info">
+      <h1 class="heading">Title</h1>
+      <h2 class="heading">Subtitle</h2>
+      <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </paper-dialog>
 
     <button>
       Dialog with actions
     </button>
 
-    <paper-action-dialog heading="Title">
+    <paper-action-dialog
+      class-"green rounded">
+      <h1 class="heading">Title</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
       <paper-button dismissive>More Info...</paper-button>
@@ -160,7 +195,12 @@
       Dialog with heading
     </button>
 
-    <paper-dialog heading="Title" class="scrolling">
+    <paper-dialog class="scrolling">
+      <div class="heading">
+        <h1>Title</h1>
+        <h2>Subtitle</h2>
+        <p>Tagline or something</p>
+      </div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -177,8 +217,8 @@
       Dialog with actions
     </button>
 
-    <paper-action-dialog heading="Title" class="scrolling">
-
+    <paper-action-dialog class="scrolling">
+      <h1 class="heading">Title</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -224,7 +264,8 @@
       Colors
     </button>
 
-    <paper-dialog heading="Custom Colors" class="colored">
+    <paper-dialog class="colored">
+      <h1 class="heading">Custom Colors</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </paper-dialog>
 
@@ -232,7 +273,8 @@
       Size &amp; Position
     </button>
 
-    <paper-dialog heading="Custom Size &amp; Position" class="size-position">
+    <paper-dialog class="size-position">
+      <h1 class="heading">Custom Size &amp; Position</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </paper-dialog>
 
